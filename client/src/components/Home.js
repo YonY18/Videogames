@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom';
 
 import Card from './Card';
 import Paginado from './Paginado';
+import Loading from './Loading';
 
 export default function Home (){ 
     const { games, name, page, order, genre} = useSelector(state => state);    
@@ -55,7 +56,7 @@ return(
             <Link to= '/'><button>IR A PAGINA DE LANZAMIENTO</button></Link> 
             
             <button onClick={p => {handleClick(p)}}>VOLVER A CARGAR JUEGOS</button>
-            <Link to= '/newGames'><button>CREAR JUEGO NUEVO</button></Link>                    
+            <Link to= '/create'><button>CREAR JUEGO NUEVO</button></Link>                    
         </div>            
             
             <br />
@@ -94,34 +95,32 @@ return(
             <br /><br /><br />
         </div>
     </div>
-
-            <Paginado
+            {allGames.length?
+            <div>
+                    <Paginado
                     gamesPerPage = {gamesPerPage}
                     allGames={allGames.length}
                     paginado = {paginado}                    
-            />             
-
-                {currentGames?.map ((p) =>{
+                    />
+                <div>
+                    {currentGames?.map((p) =>{
                     return(
-                    <Fragment>                    
-                        <div>                           
-                            <Link 
-                                key={p.id}
-                                to={`/games/${p.id}`}                            
-                            >
+                    <Fragment key={p.id}>                    
+                        {                           
+                            <Link key={p.id} to={`/videogames/${p.id}`}>
                             <Card
-                                    name={p.name} 
-                                    image={p.image ? p.image : p.image}
-                                    genre={p.genre}  
-                                    genres={p.genres}                               
-                                    platform={p.platform}
-                                    platforms={p.platforms}
+                                name={p.name} 
+                                image={p.image ? p.image : p.image}
+                                genre={p.genre ? p.genre : p.genres}                              
+                                platform={p.platform? p.platform : p.platforms}
                             />                        
                             </Link>
-                    </div>
+                        }
                     </Fragment> 
-                );
-                })}
-            </div> 
+                    )})
+                }
+                </div>
+            </div>:<Loading/>}
+        </div> 
     </div>        
     )}

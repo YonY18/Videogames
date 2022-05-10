@@ -1,18 +1,15 @@
 import React  from 'react';
 import {Link} from 'react-router-dom';
+import login from '../Img/image02.gif'
 
 export default function LandingPage(){
     return(
-        <div>            
-            <h1>P.I. Henry Games</h1>            
-            <div>
-                <h1>Bienvenidos a mi PI de Video Juegos</h1>
-            </div>              
+        <div>                         
             <Link to = '/home'>     
-            <br /><br /><br /> 
-                <br /><br />
-                <button src='/Home'>INGRESAR</button>
-                <br/><br/><br/>
+                <img src={login}
+				alt='Login'
+                width="300"
+                height="250"/>
             </Link>
 
         </div>

@@ -11,9 +11,9 @@ const App = () => {
     <div className="App">    
         <Routes>         
           <Route exact path='/' element={<LandingPage/>}/>   
-          <Route exact path='/Home' element={<Home/>}/> 
-          <Route exact path='/games/:id' element={<Detail/>}/>
-          <Route path='/newGames' element={<Create/>}/>        
+          <Route path='/Home' element={<Home/>}/> 
+          <Route path='/videogames/:id' element={<Detail/>}/>
+          <Route path='/Create' element={<Create/>}/>        
         </Routes>   
     </div>
   );

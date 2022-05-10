@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailsGames, cleanId } from "../actions/index";
 import { Link } from "react-router-dom";
+import Loading from './Loading';
 
 function Details(){
     const allDetails = useSelector((state) => state.gamesDetails); 
@@ -41,11 +42,9 @@ function Details(){
                     </h3>
 
             </div>
-            ) : (
-                <div>
-                    <h1>CARGANDO...</h1>                  
-                </div>
-              )}
+            ) :<Loading/>
+
+              }
         </div>
     )
 } 
