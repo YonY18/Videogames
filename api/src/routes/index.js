@@ -2,12 +2,9 @@ const express = require('express');
 const router = express.Router();
 // const router = Router();
 
-//defino el middleware que me trae el body de las petisiones
 router.use(express.json())
 const axios = require('axios');
-
-// aca defino models y me los traigo de la BD
-const { Videogame, Genres} = require('../db.js'); //importo los modelos conectados
+const { Videogame, Genres} = require('../db.js');
 const {API_KEY} = process.env;
 
 const getApiInfo = async () => {
@@ -66,7 +63,6 @@ const getAllGames = async () => {
             const apiInfo = await getApiInfo();
             const dbInfo = await getDbInfo();            
             const infoTotal = apiInfo.concat(dbInfo);    
-            // console.log("Soy infoTotal >>> ", infoTotal);
             return infoTotal;    
         } catch (error) {
             console.log(error);
@@ -75,14 +71,12 @@ const getAllGames = async () => {
 
 
 // [ ] GET /videogames:
-// ** Obtener un listado de los videojuegos, Debe devolver solo los datos necesarios para la ruta principal
 router.get('/videogames', async (req, res) => {
-    const name = req.query.name; // ** req query busca si hay un name por query
+    const name = req.query.name;
     const gamesAll = await getAllGames();
     if (name) {
-        // ** tolowerCase hace que la busqueda en minus/mayusc no afecte al resultado
         const gamesName = await gamesAll.filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
-        gamesName.length? // ** preguntamos si hay algo
+        gamesName.length?
             res.status(200).send(gamesName) :
             res.status(404).send('NO EXISTE EL JUEGO BUSCADO');
     }else{
@@ -92,25 +86,21 @@ router.get('/videogames', async (req, res) => {
 
 router.get('/genres', async (req, res) => {
     var apiHtml = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
-    // ** para llamar por plataforma 
     const genres = apiHtml.data.results.map(p => p.name) 
-    const genre1 = await genres.filter(p => p.length > 0); // ** para verificar q no traiga nada vacio    
-    // ** recorro todo buscando y me traigo los generos de la base de datos busca o lo crea si no existe
+    const genre1 = await genres.filter(p => p.length > 0);   
     genre1.forEach(p => { 
         if (p!==undefined) Genres.findOrCreate({where:{name:p}})
     })  
-    const allGenres = await Genres.findAll();           
-    // console.log ("ALL GENRES"+ allGenres)        
+    const allGenres = await Genres.findAll();            
     res.send(allGenres);
     });
 
-router.get("/videogame/:id", async (req, res) => {
+router.get("/videogames/:id", async (req, res) => {
     const id = req.params.id;
     const GamesTotal = await getAllGames();    
     // console.log (GamesTotal)
     if (id){
         const gamesId = await GamesTotal.filter((p) => p.id == id)
-        // ** ME TRAE CON OTROS ID DIFERENTES AL DE LA API
         console.log(gamesId)        
         gamesId.length ? 
                 res.status(200).send(gamesId) : 
@@ -119,7 +109,6 @@ router.get("/videogame/:id", async (req, res) => {
 });
 
 router.post('/videogame', async (req, res) => {
-    // ** traigo lo q me pide por Body ** 
     let{       
         name,        
         description,        
