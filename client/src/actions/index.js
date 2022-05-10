@@ -67,6 +67,13 @@ export function getDetailsGames(id){
         })
     }
 }
+export const cleanId = () => (dispatch) => {
+    let rest = {};
+    dispatch({
+        type: 'CLEAN_ID',
+        payload: rest
+    })
+}
 export function postGame(payload){
     return async function (dispatch){
         const response = await axios.post("http://localhost:3001/videogame", payload)

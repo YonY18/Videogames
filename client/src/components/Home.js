@@ -64,25 +64,25 @@ return(
         <div>
             <br />
             <select >
-                <option value="" selected disabled hidden>Por Orden alfabético</option>                
+                <option value="" defaultValue>Por Orden alfabético</option>                
                 <option value='asc'>Ascendente A-Z</option>
                 <option value='desc'>Descendente Z-A</option>
             </select>            
                        
             <select >                
-                <option value="" selected disabled hidden>Mostrar Juegos</option>
+                <option value="" defaultValue>Mostrar Juegos</option>
                 <option value="all">Todos Los Juegos</option>
                 <option value="api">De la API</option>
                 <option value="created">Creados</option>
             </select>   
             <select >                
-                <option value="" selected disabled hidden>Rating</option>                
+                <option value="" defaultValue>Rating</option>                
                 <option value="rasd">Ascendente</option>
                 <option value="rdes">descendente</option>
             </select>   
 
             <select >
-                <option value="sinFiltro" selected disabled hidden>Generos</option>               
+                <option value="sinFiltro" defaultValue>Generos</option>               
                 {genres?.map((p) => {
                         return (
                             <option key={p.id} value={p.name}>

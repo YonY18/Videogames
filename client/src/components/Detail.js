@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetailsGames } from "../actions/index";
+import { getDetailsGames, cleanId } from "../actions/index";
 import { Link } from "react-router-dom";
 
 function Details(){
@@ -11,9 +11,11 @@ function Details(){
     const { id } = useParams();
     useEffect(() => {
         dispatch(getDetailsGames(id));
-      },[dispatch,id])
+        return()=>{
+            dispatch(cleanId(id))
+        } 
+    },[])
 
-      console.log(allDetails)
     return (
         <div>
             {allDetails.length > 0 ? (

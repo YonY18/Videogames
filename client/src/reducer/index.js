@@ -34,7 +34,11 @@ export default function rootReducer(state =  initialState, action){
                 ...state,
                 gamesDetails: action.payload
             }
-
+        case "CLEAN_ID":
+            return {
+                ...state,
+                gamesDetails: []
+            }
 
 
 default:
