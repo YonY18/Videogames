@@ -5,9 +5,9 @@ import {getGames,
     getListGenres, 
     getPlatforms, 
     setPage} from '../actions';
-
+import NavBar from './NavBar';
 import {Link} from 'react-router-dom';
-
+import estilos from '../Estilos/Home.module.css';
 import Card from './Card';
 import Paginado from './Paginado';
 import Loading from './Loading';
@@ -26,7 +26,6 @@ export default function Home (){
 
     const currentGames =  allGames.slice(indexOfFirstGame, indexOfLastGame)
 
-    const genres = useSelector((state) => state.genres);
     const platforms = useSelector((state) => state.platforms);
     const ratings = useSelector((state) => state.ratings);
 
@@ -45,56 +44,16 @@ export default function Home (){
         dispatch(getGames())}
 
 
-return(
-        
-    <div>        
-        <div>             
-            <div className="padre">
-                <h1 className="colorLetrasBienvenido">** Bienvenidos a mi App de Juegos **</h1>
-            </div>
-        <div>
-            <Link to= '/'><button>IR A PAGINA DE LANZAMIENTO</button></Link> 
-            
-            <button onClick={p => {handleClick(p)}}>VOLVER A CARGAR JUEGOS</button>
-            <Link to= '/create'><button>CREAR JUEGO NUEVO</button></Link>                    
-        </div>            
-            
-            <br />
-  
-        <div>                
-        <div>
-            <br />
-            <select >
-                <option value="" defaultValue>Por Orden alfabético</option>                
-                <option value='asc'>Ascendente A-Z</option>
-                <option value='desc'>Descendente Z-A</option>
-            </select>            
-                       
-            <select >                
-                <option value="" defaultValue>Mostrar Juegos</option>
-                <option value="all">Todos Los Juegos</option>
-                <option value="api">De la API</option>
-                <option value="created">Creados</option>
-            </select>   
-            <select >                
-                <option value="" defaultValue>Rating</option>                
-                <option value="rasd">Ascendente</option>
-                <option value="rdes">descendente</option>
-            </select>   
+return (
+    <>           
+        <div className={estilos.home}>             
+        <h1 className={estilos.titulo}>** Bienvenidos a mi App de Juegos **</h1>
+        <NavBar 
+                
+                handleClick={handleClick}
 
-            <select >
-                <option value="sinFiltro" defaultValue>Generos</option>               
-                {genres?.map((p) => {
-                        return (
-                            <option key={p.id} value={p.name}>
-                                {p.name}
-                            </option>
-                        );
-                    })}                    
-            </select> 
-            <br /><br /><br />
-        </div>
-    </div>
+            />    
+        <div>
             {allGames.length?
             <div>
                     <Paginado
@@ -102,7 +61,7 @@ return(
                     allGames={allGames.length}
                     paginado = {paginado}                    
                     />
-                <div>
+                <div className={estilos.cards}>
                     {currentGames?.map((p) =>{
                     return(
                     <Fragment key={p.id}>                    
@@ -121,6 +80,9 @@ return(
                 }
                 </div>
             </div>:<Loading/>}
-        </div> 
-    </div>        
-    )}
+            </div>
+        </div>
+        <footer className={estilos.henry}><img src="https://assets.soyhenry.com/henry-landing/assets/Henry/logo-white.png" alt="Logo Henry" width='150'/></footer>
+    </>      
+    )
+}

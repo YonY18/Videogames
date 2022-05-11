@@ -1,0 +1,45 @@
+a{
+    text-decoration: none;
+}
+
+.card{
+    background: linear-gradient(180deg, rgb(4, 58, 68) 0%, rgb(11, 11, 29) 100%);
+    box-shadow: 2px 13px 43px -19px rgba(69,69,69,1);
+    max-width: 350px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.card:hover{
+    transform: scale(1.05);
+}
+.titulo{
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    color: rgb(58, 58, 58);
+    text-transform: uppercase;
+    padding: 1rem 0;
+    
+} 
+.contenedorTipos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    background-color: rgb(0, 0, 0);
+    padding: 1.5rem 0;
+    border-radius: 0.5rem;
+    text-transform: capitalize;
+    border: solid 2px rgba(255, 255, 255, 0.315);
+}
+.tipos{
+    font-size: 1.5rem;
+    color: rgb(58,58,58);
+}
+.p{
+    margin: 0;
+    text-align: right;
+}
+span{
+    color: #0A285F;
+    text-align: left;
+}

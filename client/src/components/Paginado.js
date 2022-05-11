@@ -1,4 +1,5 @@
 import React from 'react';
+import estilos from '../Estilos/Paginado.module.css';
 
 export default function Paginado ({gamesPerPage, allGames, paginado}){
     const pageNumbers = []
@@ -7,28 +8,15 @@ export default function Paginado ({gamesPerPage, allGames, paginado}){
         pageNumbers.push(i)
     }
     return(
-        <nav>                        
-                <div  style={{
-                    display: 'flex',
-                    flexdirection: 'row',                    
-                    flexWrap: 'wrap',
-                    justifyContent:'center',
-                    alingItems: 'center',
-                    margin: '5px',                    
-                    decoration: 'none'     
-                }}>
-                    
-                    {pageNumbers &&                   
-                     pageNumbers.map ( number => (
-                            <ul 
-                                key={number} >
-                                <button onClick={() => paginado(number)}>{ number }</button>
-                            </ul>
-                     )) }
-
-                </div>
+        <nav className={estilos.navbar}>
+            <ul>
+            {pageNumbers &&                   
+                pageNumbers.map ( number => (
+                    <li key={number}>
+                        <button className={estilos.button} onClick={() => paginado(number)}>{ number }</button>
+                    </li>
+                ))}
+            </ul> 
         </nav>
-
     )
-
 }

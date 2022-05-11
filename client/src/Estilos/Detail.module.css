@@ -1,0 +1,61 @@
+.todo{
+    height: 100vh;
+}
+.button{
+    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, #D89502 100%);
+   border: none;
+   padding: 1rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: #0A285F;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.buttondelete{
+    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, #D89502 100%);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: #ff0000;
+    font-weight: bold;
+    text-transform: uppercase;
+ }
+.button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: scale  0.2s;
+}
+.buttondelete:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: scale  0.2s;
+}
+.titulo{
+    font-size: 4.5rem;
+    color: rgb(58, 58, 58);
+    text-transform: capitalize;
+}
+.contGral{
+    background: rgba(255, 255, 255, 0.178);
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.contenedorInfo{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
+    font-size: 1.8rem;
+    text-align: left;
+    padding: 1rem;
+}
+.contenedorInfo label{
+    color: rgb(58, 58, 58);
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
