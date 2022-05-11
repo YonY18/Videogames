@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,8 +9,7 @@ export default function NavBar({allGenres, handleSort, handleSortRating, handleF
     const dispatch = useDispatch()
     const genres = useSelector((state) => state.genres);
 
-    const allPokeTypes = useSelector ((state)=> state.allPokemons)
-    const [stateName, setStateName] = useState('');
+
 
 
 
