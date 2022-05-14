@@ -1,0 +1,51 @@
+.contenedorFiltro{
+    
+    padding: 2rem;
+}
+.label{
+    color: #0A285F;
+    padding: 2rem;
+}
+.contenedorOrden{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr 1fr 2fr);
+    align-content: center;
+    align-items: center;
+}
+.orden{
+  
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+    margin: 0.5rem auto;
+    font-size: 1.5rem;
+    color: rgb(58,58,58);
+}
+.ordenSelect{
+    width: 100%;
+    padding: 0.5rem;
+    display: inline-block;
+    border: solid 1px rgba(255, 255, 255, 0.555);
+    border-radius: 0.5rem;
+    margin: 0 2rem;
+    font-size: 1.4rem;
+
+    background-color: rgb(58,58,58);
+}
+.ordenSelect:hover{
+    cursor: pointer;
+}
+.button{
+
+   border: none;
+   padding: 1rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: #0A285F;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: scale  0.2s;
+}

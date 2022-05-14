@@ -1,4 +1,4 @@
-import loader from '../Img/loading.gif'
+import loader from '../Assets/loading.gif'
 import estilos from "../Estilos/Loading.module.css";
 
 function Loading() {

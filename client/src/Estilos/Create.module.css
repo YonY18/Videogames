@@ -1,0 +1,85 @@
+.contenedorGral{
+ max-width: 800px;   
+ margin: 0 auto;
+ font-size: 1.5rem;
+ background-color: rgb(255, 255, 255);
+}
+h2{
+    font-size: 2.5rem;
+    color: rgb(58,58,58);
+}
+.formulario{
+  margin-bottom: 1rem;
+}
+
+.contenedorInputs{
+    width: 60%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    position: relative;
+}
+.input , select{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: rgb(58,58,58);
+    color:  rgb(54, 254, 97);
+    width: 50%;
+    margin: 0 auto;
+}
+.span{
+    position: absolute;
+    bottom: -20px;
+    left: 35px;
+    color: #ac2b0b;
+    
+}
+.contenedorSeleccion{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 50%;
+    margin: 1rem auto;
+    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, rgba(225,182,16,1) 100%);
+    border: solid 2px rgba(255, 255, 255, 0.425);
+    padding: 2rem;
+}
+.contenedorSeleccionContenido{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1rem;
+   
+}
+.contenedorSeleccionContenidoTitulo{
+    text-transform: capitalize;
+    color: #0A285F;
+    font-size: 1.6rem;
+}
+.delete{
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 0.5rem;
+}
+.delete:hover{
+    cursor: pointer;
+    background-color: #5f1b0a;
+    transition:  0.5s;
+    color: #FFF;
+}
+.button{
+    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, #D89502 100%);
+   border: none;
+   padding: 1rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: #0A285F;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: scale  0.2s;
+}

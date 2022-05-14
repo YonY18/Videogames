@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import estilos from '../Estilos/NavBar.module.css'
 import { Link } from 'react-router-dom';
 
 
@@ -11,12 +11,13 @@ export default function NavBar({orderByName, handleSortRating, handleFilterCreat
 return (
     
    
-<div className="selectfont">
+<div className={estilos.contenedorFiltro}>
     <div>
-        <Link to= '/'><button className="selectfont">IR A PAGINA DE LANZAMIENTO</button></Link> 
-        <button className="selectfont" onClick={p => {handleClick(p)}}>VOLVER A CARGAR JUEGOS</button>
-        <Link to= '/create'><button className="selectfont">CREAR JUEGO NUEVO</button></Link>
-     </div>        
+        <Link to= '/'><button className={estilos.button}>IR A PAGINA DE LANZAMIENTO</button></Link> 
+        <button className={estilos.button} onClick={p => {handleClick(p)}}>VOLVER A CARGAR JUEGOS</button>
+        <Link to= '/create'><button className={estilos.button}>CREAR JUEGO NUEVO</button></Link>
+     </div>
+     <div className={estilos.contenedorOrden}>        
 <select className="selectfont" onChange={p => orderByName(p)}>
     <option value="" defaultValue>Por Orden alfabético</option>                
     <option value='asc'>Ascendente A-Z</option>
@@ -44,5 +45,5 @@ return (
                 </option>
             );
         })}                    
-</select></div>
+</select></div></div>
     )}
