@@ -113,6 +113,10 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 games: RsortedArr
             }
+        case 'POST_GAMES':
+            return {
+                ...state
+            }
         default:
             return state;
     }
