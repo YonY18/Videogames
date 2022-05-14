@@ -80,3 +80,31 @@ export function postGame(payload){
         return response
     }
 }
+export function filterCreated(value){ //payload es el value q me llega
+    // console.log(payload)
+    return{
+        type: 'FILTER_CREATED',
+        payload: value
+    }
+};
+
+export function orderByName(payload){
+    return{
+        type: 'ORDER_BY_NAME',
+        payload
+    }
+}
+
+export function orderByRating(payload){
+    return{
+        type: 'ORDER_BY_RATING',
+        payload
+    }
+}
+export function filterGamesByGenre(payload){
+    console.log (payload)
+    return {
+        type: 'FILTER_GAMES_BY_GENRES',
+        payload
+    }
+}

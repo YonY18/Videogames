@@ -1,7 +1,7 @@
 import React from "react";
 import estilos from '../Estilos/Card.module.css';
 
-export default function Card({name, image, genre, genres, platform, platforms}){
+export default function Card({name, image, genre, genres}){
     
     return (
         <div className={estilos.card}>   

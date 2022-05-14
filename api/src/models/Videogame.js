@@ -13,27 +13,25 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique:true,
     },
-    description:{
-      type: DataTypes.STRING,
-      allowNull: true,
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
-    platform:{
-      type: DataTypes.STRING,
-      allowNull:true,
-    },
-    image:{
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    released:{ // fecha lanzamiento
-      type: DataTypes.STRING,
-      allowNull:true,
-    },    
     rating:{
+      type: DataTypes.FLOAT,
+    },
+    released: {
+      type: DataTypes.STRING
+    },
+    image: {
       type: DataTypes.STRING,
-      allowNull:true,
-    },    
+      allowNull: true,
+    },
+    platforms: {
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },       
     createInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

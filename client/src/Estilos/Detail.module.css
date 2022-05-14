@@ -1,26 +1,6 @@
 .todo{
     height: 100vh;
 }
-.button{
-    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, #D89502 100%);
-   border: none;
-   padding: 1rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-    color: #0A285F;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.buttondelete{
-    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, #D89502 100%);
-    border: none;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-    color: #ff0000;
-    font-weight: bold;
-    text-transform: uppercase;
- }
 .button:hover{
     cursor: pointer;
     transform: scale(1.05);
@@ -37,7 +17,7 @@
     text-transform: capitalize;
 }
 .contGral{
-    background: rgba(255, 255, 255, 0.178);
+    background: rgba(243, 239, 239, 0.733);
     border-radius: 0.5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
