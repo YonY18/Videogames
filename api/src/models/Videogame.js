@@ -16,6 +16,7 @@ module.exports = (sequelize) => {
         len: [3, 50]
       },
       allowNull: false,
+      unique:true,
     },
     description: {
       type: DataTypes.TEXT,
