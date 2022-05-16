@@ -5,7 +5,7 @@ import { postGame, getGenres } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import estilos from '../Estilos/Create.module.css'
-import Placeholder from '../Assets/no-img-placeholder.jsx'
+import { ReactComponent as Placeholder } from '../Assets/no-img-placeholder.svg'
 
 
 export default function GameCreate() {
@@ -49,7 +49,7 @@ export default function GameCreate() {
     };
 
     //------------- PARTE DE HANDLES ---------------------
-    function handleFileImage (p){
+    function handleFileImage(p) {
         try {
             const file = p.target.files[0];
             const reader = new FileReader();
@@ -62,7 +62,7 @@ export default function GameCreate() {
                     errors: validate({
                         ...input,
                         image: reader.result
-                    }) 
+                    })
                 })
             }
         } catch (error) {
@@ -74,7 +74,7 @@ export default function GameCreate() {
                 errors: validate({
                     ...input,
                     image: ''
-                }) 
+                })
             })
         }
     }
@@ -200,14 +200,14 @@ export default function GameCreate() {
                     </div>
                     <label>Imagen:</label>
                     {errors.image && <span>{errors.image}</span>}
-                    <input 
+                    <input
                         onChange={(p) => handleFileImage(p)}
                         type="file"
                         name="imageFile"
                         accept="image/jpeg, image/png"
                         autoComplete='off' />
-                    <span>Supported extensions: jpg/jpeg/png</span>
-                    <img src={input.image || Placeholder} alt='Selected breed' />
+                    <span className={estilos.extensions}>Supported extensions: jpg/jpeg/png</span>
+                    <img className={estilos.displayImg} src={input.image || Placeholder} alt='No Img' />
                     <div className={estilos.contenedorInputs}>
                         <label>Genero:</label>
                         <select onChange={(p) => handleSelect(p)}>

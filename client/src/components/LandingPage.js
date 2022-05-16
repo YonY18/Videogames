@@ -1,6 +1,6 @@
 import React  from 'react';
 import {Link} from 'react-router-dom';
-import login from '../Img/image02.gif'
+import login from '../Assets/image02.gif'
 import estilos from '../Estilos/LandingPage.module.css'
 
 export default function LandingPage(){
