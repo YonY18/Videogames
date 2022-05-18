@@ -1,23 +1,26 @@
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import { BrowserRouter ,Route , Routes} from 'react-router-dom'
+import LandingPage from './components/LandingPage';
+import Home from './components/Home'
+import Create from './components/Create'
+import Detail from './components/Detail';
+import "./Estilos/normalize.css"
 
-import LandingPage from './components/LandingPage.js'
-import Home from './components/Home.js';
-import Create from './components/Create.js';
-import Detail from './components/Detail.js'
-
-const App = () => {
+export default function App() {
   return (
-    <div className="App">    
-        <Routes>         
-          <Route exact path='/' element={<LandingPage/>}/>   
-          <Route path='/Home' element={<Home/>}/> 
-          <Route path='/videogames/:id' element={<Detail/>}/>
-          <Route path='/Create' element={<Create/>}/>        
-        </Routes>   
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route exact path='/' element={<LandingPage/>}/>
+          <Route exact path='/home' element={<Home/>}/>
+          <Route exact path='/videogames/:id' element={<Detail/>} />
+          <Route exact path='/videogame' element={<Create/>}/>  
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
-export default App;
+
+
 
 

@@ -1,49 +1,67 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import estilos from '../Estilos/NavBar.module.css'
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
+export default function NavBar({ handleOrder, handleOrderRating, handleFilterCreated, handleFilterGenres, handleClick }) {
+  const genres = useSelector(state => state.genres)
+  return (
 
-export default function NavBar({orderByName, handleSortRating, handleFilterCreated, handleFilterGamesByGenre, handleClick }) {
-    const dispatch = useDispatch()
-    const genres = useSelector((state) => state.genres);
-return (
+    <div className={estilos.clase1}>
+      <Link to= '/'><button className={estilos.button}>IR A PAGINA DE LANZAMIENTO</button></Link>
+      <Link to='/videogame'>
+        <button className={estilos.button}>Crear Videojuego</button>
+      </Link>
+      <button className={estilos.button} onClick={handleClick}>Recargar Videojuegos</button>
+      <SearchBar />  
+      <div className={estilos.selectConte}>
+      <select
+        className={estilos.select}
+        defaultValue='Order'
+        onChange={handleOrder}
+      >
+        <option value='Order' disabled>Ordenar</option>
+        <option value='Asc'>A-Z</option>
+        <option value='Desc'>Z-A</option>
+      </select>
+      <select
+        className={estilos.select}
+        defaultValue='Rating'
+        onChange={handleOrderRating}
+      >
+        <option value='Rating' disabled>🏆Rating</option>
+        <option value='high'>High</option>
+        <option value='low'>Low</option>
+      </select>
+      <select
+        className={estilos.select}
+        defaultValue='Genres'
+        onChange={handleFilterGenres}
+      >
+        <option className="options" disabled>Generos</option>
+        <option className="options" value="All">All</option>
+        {
+          genres.map((e) => (
+            <option className='options' key={e.id} value={e.name}>
+              {e.name}
+            </option>
+          ))
+        }
+      </select>
+      <select
+        className={estilos.select}
+        defaultValue='filtrados'
+        onChange={handleFilterCreated}
+      >
+        <option className="options" disabled>Origen</option>
+        <option className="options" value='All'>All</option>
+        <option className="options" value='created'>Created </option>
+        <option className="options" value='api'>Api</option>
+      </select>
+    </div>
+    </div>
     
-   
-<div className={estilos.contenedorFiltro}>
-    <div>
-        <Link to= '/'><button className={estilos.button}>IR A PAGINA DE LANZAMIENTO</button></Link> 
-        <button className={estilos.button} onClick={p => {handleClick(p)}}>VOLVER A CARGAR JUEGOS</button>
-        <Link to= '/create'><button className={estilos.button}>CREAR JUEGO NUEVO</button></Link>
-     </div>
-     <div className={estilos.contenedorOrden}>        
-<select className="selectfont" onChange={p => orderByName(p)}>
-    <option value="" defaultValue>Por Orden alfabético</option>                
-    <option value='asc'>Ascendente A-Z</option>
-    <option value='desc'>Descendente Z-A</option>
-</select>            
-           
-<select className="selectfont" onChange={p => handleFilterCreated(p)}>                
-    <option value="" defaultValue>Mostrar Juegos</option>
-    <option value="all">Todos Los Juegos</option>
-    <option value="api">De la API</option>
-    <option value="created">Creados</option>
-</select>   
-<select className="selectfont" onChange={p => handleSortRating(p)}>                
-    <option value="" defaultValue>Rating</option>                
-    <option value="rasd">Ascendente</option>
-    <option value="rdes">descendente</option>
-</select>   
-
-<select className="selectfont" onChange={p => handleFilterGamesByGenre(p)}>
-    <option value="sinFiltro" defaultValue>Generos</option>               
-    {genres?.map((p) => {
-            return (
-                <option key={p.id} value={p.name}>
-                    {p.name}
-                </option>
-            );
-        })}                    
-</select></div></div>
-    )}
+  )
+}

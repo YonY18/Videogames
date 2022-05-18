@@ -1,7 +1,7 @@
 import loader from '../Assets/loading.gif'
 import estilos from "../Estilos/Loading.module.css";
 
-function Loading() {
+export default function Loading() {
     return (
         <div className={estilos.spinner}>
             <img 
@@ -14,5 +14,3 @@ function Loading() {
         </div> 
     )
 }
-
-export default Loading;
