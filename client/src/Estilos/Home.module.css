@@ -1,33 +1,41 @@
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto; 
-    grid-gap: 1rem;
-    margin: 0 auto;
-    max-width: 1200px;
+.titulo {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 2rem auto;
 }
-.home{
-    background:black;
-    min-height: 100vh;
-}
-.titulo{
-    font-size: 4rem;
-    color: rgb(58, 58, 58);
-    text-transform: capitalize;
+.contenedorCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
-
-.sortfilter{
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 1%;
+.contenidoHeader {
+  display: grid;
+  grid-template-columns: repeat(1, 0.7fr 2fr);
+  max-width: 120rem;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
 }
 
-.sortfilter select option{
-    padding: 3%;
+.error {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
 }
 
-.henry{
-    padding: 1rem;
-    
+.filtrosTarjetas {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.henry {
+  padding: 1rem;
 }

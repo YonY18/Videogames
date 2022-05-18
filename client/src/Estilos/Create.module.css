@@ -1,85 +1,147 @@
-.contenedorGral{
- max-width: 800px;   
- margin: 0 auto;
- font-size: 1.5rem;
- background-color: rgb(255, 255, 255);
-}
-h2{
-    font-size: 2.5rem;
-    color: rgb(58,58,58);
-}
-.formulario{
-  margin-bottom: 1rem;
+.fondoVGCreate {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow: auto;
 }
 
-.contenedorInputs{
-    width: 60%;
-    margin: 2rem auto;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    position: relative;
+.contenedorAll {
+  padding-bottom: 2rem;
+  width: 80%;
+  background-color: #00000037;
+  border-radius: 18px;
+  margin: 2rem auto;
 }
-.input , select{
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: rgb(58,58,58);
-    color:  rgb(54, 254, 97);
-    width: 50%;
-    margin: 0 auto;
+
+@media (min-width: 768px) {
+  .contenedorAll {
+    max-width: 80rem;
+  }
 }
-.span{
-    position: absolute;
-    bottom: -20px;
-    left: 35px;
-    color: #ac2b0b;
-    
+
+/*#42bcd582*/
+
+.buttonBackHome {
+  padding: 1rem;
+  background-color: #191630;
+  color: #42bcd5;
+  font-size: 1.5 rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-radius: 0.5rem;
+  border: solid 1px #e6215e;
+  margin: 2rem auto;
 }
-.contenedorSeleccion{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    width: 50%;
-    margin: 1rem auto;
-    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, rgba(225,182,16,1) 100%);
-    border: solid 2px rgba(255, 255, 255, 0.425);
-    padding: 2rem;
+.buttonBackHome:hover {
+  cursor: pointer;
+  background-color: #e6215e;
 }
-.contenedorSeleccionContenido{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 1rem;
-   
+
+.titulo {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
 }
-.contenedorSeleccionContenidoTitulo{
-    text-transform: capitalize;
-    color: #0A285F;
-    font-size: 1.6rem;
+
+.item {
+  margin-bottom: 2%;
 }
-.delete{
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 0.5rem;
+
+.label {
+  letter-spacing: 5px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
-.delete:hover{
-    cursor: pointer;
-    background-color: #5f1b0a;
-    transition:  0.5s;
-    color: #FFF;
+.extensions {
+  color: #fff;
+  padding-bottom: 10px;
+  font-size: 1rem;
 }
-.button{
-    background: linear-gradient(180deg, rgba(254,219,54,1) 0%, #D89502 100%);
-   border: none;
-   padding: 1rem;
-    border-radius: 0.5rem;
-    width: fit-content;
-    color: #0A285F;
-    font-weight: bold;
-    text-transform: uppercase;
+.displayImg {
+  width: 450px;
+  margin-bottom: 20px;
 }
-.button:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: scale  0.2s;
+.inputImg {
+  margin-top: 20px;
+  height: 40px;
+  width: 350px;
+}
+.input {
+  padding: 1rem;
+  width: 90%;
+  font-weight: bold;
+  border-radius: 10px;
+  border: solid 1px #e6215e;
+  background-color: #191630;
+  color: #42bcd5;
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  .input {
+    max-width: 50rem;
+  }
+}
+
+.inputDescription {
+  padding: 1rem;
+  width: 90%;
+  font-weight: bold;
+  border-radius: 10px;
+  border: solid 1px #e6215e;
+  background-color: #191630;
+  color: #42bcd5;
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  .inputDescription {
+    max-width: 50rem;
+  }
+}
+
+.select {
+  font-weight: bold;
+  margin: 1rem auto;
+  display: block;
+  padding: 1rem;
+  width: 60%;
+  background-color: #191630;
+  border-radius: 0.5rem;
+  border: solid 1px #191630;
+  color: #e6215e;
+}
+@media (min-width: 768px) {
+  .select {
+    max-width: 50rem;
+  }
+}
+
+.listaGP {
+  display: inline-flex;
+  font-weight: bold;
+}
+
+.divGP {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.buttonx {
+  border-radius: 0.7rem;
+  border: solid 1px #191630;
+  background-color: #42bcd5;
+}
+
+.buttonCreate {
+  padding: 1rem;
+  background-color: #191630;
+  color: #42bcd5;
+  font-size: 1.5 rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-radius: 0.5rem;
+  border: solid 1px #e6215e;
 }

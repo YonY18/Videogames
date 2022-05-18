@@ -1,41 +1,79 @@
-.todo{
-    height: 100vh;
+.fondoDetail {
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow: auto;
 }
-.button:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: scale  0.2s;
+
+.contenedorGeneral {
+  box-sizing: border-box;
+  border-radius: 30px;
+  margin: 3rem auto;
+  padding-top: 5px;
 }
-.buttondelete:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: scale  0.2s;
+
+.contenedorSecundario {
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-color: #00a2f0;
+  background-color: rgba(255, 255, 255, 0.287);
+  margin-top: 1.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 1.5%;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
-.titulo{
-    font-size: 4.5rem;
-    color: rgb(58, 58, 58);
-    text-transform: capitalize;
+.tituloName {
+  font-weight: bold;
+  font-size: 3.3rem;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
-.contGral{
-    background: rgba(243, 239, 239, 0.733);
-    border-radius: 0.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
+
+.image {
+  width: 60%;
+  vertical-align: middle;
+  margin-bottom: 20px;
+  padding: 0;
+  border-radius: 20px;
 }
-.contenedorInfo{
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 1rem;
-    font-size: 1.8rem;
-    text-align: left;
-    padding: 1rem;
+
+.items {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
 }
-.contenedorInfo label{
-    color: rgb(58, 58, 58);
-    display: block;
-    font-size: 2rem;
-    font-weight: bold;
+
+.descriptionDetail {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  line-height: 2.3rem;
+  align-items: center;
+  font-weight: bold;
+  min-width: 10px;
+  margin-top: 15px;
+  text-align: justify;
+  padding-right: 3%;
+  padding-left: 5%;
+  padding-bottom: 1%;
+}
+
+.buttonBack {
+  padding: 1rem;
+  background-color: #191630;
+  color: #42bcd5;
+  font-size: 1.5 rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-radius: 0.5rem;
+  border: solid 1px #e6215e;
+  margin-bottom: 1rem;
+}
+
+.buttonBack:hover {
+  cursor: pointer;
+  background-color: #e6215e;
+  transform: translateY(-4px);
 }

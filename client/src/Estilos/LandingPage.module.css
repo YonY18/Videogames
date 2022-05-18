@@ -1,24 +1,23 @@
-.LandingPage{
-    background: black;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    align-content:stretch;
-    background-image: url('../Img/fondolanding.gif');
-    background-size: cover;
+.LandingPage {
+  background: black;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-content: stretch;
+  
+  background-size: cover;
 }
-.titulo{
-    margin:0 auto;
-    grid-row-start: 2;
-    grid-row-end: 3;
+.titulo {
+  margin: 0 auto;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
-.button{
-   border: none;
-   padding: 2rem 0;
-   
+.button {
+  border: none;
+  padding: 2rem 0;
 }
-.button:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: scale  0.2s;
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: scale 0.2s;
 }

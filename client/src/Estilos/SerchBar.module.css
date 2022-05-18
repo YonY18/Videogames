@@ -1,0 +1,59 @@
+.searchbar {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.searchbar form {
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar div {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  grid-template-rows: 35px 40px;
+}
+.searchbar .errors {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+
+.input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: solid 1px #e6215e;
+  background-color: #191630;
+  color: #42bcd5;
+  margin-right: 2rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.buttons{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.button {
+  padding: 1rem;
+  background-color: #191630;
+  color: #42bcd5;
+  font-size: 1.5 rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-radius: 0.5rem;
+  border: solid 1px #e6215e;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #e6215e;
+}
+
+.errors p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: red;
+  text-align: left;
+}
