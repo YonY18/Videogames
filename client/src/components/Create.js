@@ -1,236 +1,267 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { postGame, getGenres } from '../actions';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import estilos from '../Estilos/Create.module.css'
-import { ReactComponent as Placeholder } from '../Assets/no-img-placeholder.svg'
-
+import React from 'react'
+import { useNavigate, Link } from 'react-router-dom';
+import { useState , useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { postGame , getGenres , getGames } from '../Redux/actions'
+import estilos from "../Estilos/Create.module.css"
+import Placeholder from "../Assets/no-img-placeholder.svg"
 
 export default function GameCreate() {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const genres = useSelector(state => state.genres)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const genres = useSelector(state => state.genres);
+  const platforms = useSelector(state => state.platforms);
+  const allVideogames = useSelector((state) => state.videogames);
+  
+  const [input , setInput] = useState({
+     name: "",
+     image: "",
+     description: "",
+     released: "",
+     rating: "",
+     genres: [],
+     platforms: [],
+  });
 
-    useEffect(() => {
-        dispatch(getGenres())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(getGenres())
+    dispatch(getGames())
+  },[dispatch]);
 
-    const [input, setInput] = useState({
-        name: "",
-        description: "",
-        platform: [],
-        image: "",
-        released: "",
-        rating: "",
-        genre: [],
+  const handleChange = (e) => {
+    setInput({
+      ...input,
+      [e.target.name] : e.target.value
+    });
+  }
+
+  const handleSelect = (e) => {
+    setInput({
+      ...input,
+      genres: input.genres.includes(e.target.value) 
+      ? input.genres 
+      : [...input.genres, e.target.value]
     })
+  }
 
-    const [errors, setErrors] = useState({});
-
-    //------------- PARTE DE VALIDACIONES ---------------
-
-    function validate(input) {
-        let errors = {};
-        if (!input.name) {
-            errors.name = 'Requiere Nombre de JUEGO';
-        } else if (!input.description) {
-            errors.description = 'Requiere Descripción'
-        } else if (!input.platform) {
-            errors.platform = 'Requiere Plataforma'
-        } else if (!input.rating) {
-            errors.rating = 'Requiere Rating'
-        }
-        else if (!input.released) {
-            errors.released = 'Requiere Fecha Lanzamiento'
-        }
-        return errors;
-    };
-
-    //------------- PARTE DE HANDLES ---------------------
-    function handleFileImage(p) {
-        try {
-            const file = p.target.files[0];
-            const reader = new FileReader();
-            reader.readAsDataURL(file)
-            reader.onload = () => {
-                setInput({
-                    ...input,
-                    image: reader.result
-                    ,
-                    errors: validate({
-                        ...input,
-                        image: reader.result
-                    })
-                })
-            }
-        } catch (error) {
+  const handleSelect2 = (e) => {
+    setInput({
+      ...input,
+      platforms: input.platforms.includes(e.target.value) 
+      ? input.platforms 
+      : [...input.platforms, e.target.value]
+    })
+  }
+  function handleFileImage(p) {
+    try {
+        const file = p.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file)
+        reader.onload = () => {
             setInput({
                 ...input,
-                image: {
-                    image: ''
-                },
-                errors: validate({
-                    ...input,
-                    image: ''
-                })
+                image: reader.result,
             })
         }
-    }
-
-
-    function handleChange(p) { // va a  ir modificando cuando cambien los input
+    } catch (error) {
         setInput({
             ...input,
-            [p.target.name]: p.target.value
-        })
-        setErrors(validate({
-            ...input,
-            [p.target.description]: p.target.value
-        }))
-        console.log(input)
-    }
-
-    function handleSelect(p) {
-        setInput({
-            ...input,
-            genre: [...input.genre, p.target.value] //para el array de Generos q concatene las selecciones
+            image: {
+                image: ''
+            },
         })
     }
-    function handleDelete(p) {
-        setInput({
-            ...input,
-            // va guardando en el arreglo todo lo que voy eligiendo de generos linea 42
-            genre: input.genre.filter(occ => occ !== p)
-        })
-    }
-    function handleSubmit(p) {
-        p.preventDefault();
-        //console.log(p)
-        setErrors(validate({
-            ...input,
-            [p.target.name]: p.target.value
-        }));
-        dispatch(postGame(input)); // input es el payload
-        alert("JUEGO Creado!!!")
-        setInput({ // seteo el input a cero
-            name: "",
-            description: "",
-            platform: [],
-            image: "",
-            released: "",
-            rating: "",
-            genre: [],
-        })
-        navigate('/home');
-    }
-    //-------------------------------------------------------------------------------------------
-    return (
-        <div className={estilos.contenedorGral}>
-            <div>
-                <div>
-                    <h1>** Crear Nuevo Juego **</h1>
-                </div>
-            </div>
-            <div>
-                <br />
-                <Link to='/'><button>Ir a Pagina de Lanzamiento</button></Link>
-                <Link to='/home'><button>Ir a Pagina Home</button></Link>
-            </div>
-            <br /><br /><br />
-            <form className={estilos.formulario} onSubmit={(p) => handleSubmit(p)} >
-                <div>
-                    <div className={estilos.contenedorInputs}>
-                        <label>Nombre Juego:</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={input.name}
-                            onChange={(p) => handleChange(p)}
-                            autoComplete="off"
-                        />
-                        {errors.name && (<p>{errors.name}</p>
-                        )}
-                    </div>
-                    <div className={estilos.contenedorInputs}>
-                        <label>Descripción:</label>
-                        <input
-                            type="text"
-                            value={input.description}
-                            name="description"
-                            onChange={(p) => handleChange(p)}
-                        />
-                        {errors.description && (
-                            <h2>{errors.description}</h2>
-                        )}
-                    </div>
-                    <div className={estilos.contenedorInputs}>
-                        <label>Plataforma:</label>
-                        <input
-                            type="text"
-                            value={input.platform}
-                            name="platform"
-                            onChange={(p) => handleChange(p)}
-                        />
-                        {errors.platform && (<p>{errors.platform}</p>
-                        )}
-                    </div>
-                    <div className={estilos.contenedorInputs}>
-                        <label>Rating:</label>
-                        <input
-                            type="text"
-                            value={input.rating}
-                            name="rating"
-                            onChange={(p) => handleChange(p)}
-                        />
-                        {errors.rating && (<p>{errors.rating}</p>
-                        )}
-                    </div>
-                    <div className={estilos.contenedorInputs}>
-                        <label>Fecha Lanzamiento:</label>
-                        <input
-                            type="text"
-                            value={input.released}
-                            name="released"
-                            onChange={(p) => handleChange(p)}
-                        />
-                        {errors.released && (<p>{errors.released}</p>
-                        )}
-                    </div>
-                    <label>Imagen:</label>
-                    {errors.image && <span>{errors.image}</span>}
-                    <input
-                        onChange={(p) => handleFileImage(p)}
-                        type="file"
-                        name="imageFile"
-                        accept="image/jpeg, image/png"
-                        autoComplete='off' />
-                    <span className={estilos.extensions}>Supported extensions: jpg/jpeg/png</span>
-                    <img className={estilos.displayImg} src={input.image || Placeholder} alt='No Img' />
-                    <div className={estilos.contenedorInputs}>
-                        <label>Genero:</label>
-                        <select onChange={(p) => handleSelect(p)}>
-                            {genres?.map((gen) => {
-                                return (
-                                    <option key={gen.id} value={gen.name}>
-                                        {gen.name}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                        <div className={estilos.contenedorInputs}>
-                            {input.genre.map(el =>
-                                <div>
-                                    <h3>{el}</h3>
-                                    <button onClick={() => { handleDelete(el) }}>-X-</button>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-                <button type='submit'>Crear Juego</button>
-            </form>
-        </div>
-    )
 }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(!input.name.trim()){
+      return alert("Need to put name")
+    }else if(
+      allVideogames.find(e => 
+         e.name.toLowerCase().trim() === input.name.toLowerCase().trim()
+      )
+    ){
+      return alert(`El nombre ${input.name} ya existe`)
+    }else if (input.description.trim() === ""){
+      return alert("Descripcion requerida")
+    }else if(input.released.trim() === ""){
+      return alert("Fecha de publicacion requerido")
+    }else if (input.released < "1951-05-03"){
+      return alert ("La fecha no puede ser inferior a 05/03/1951")
+    }else if (input.rating === "" || input.rating < 1 || input.rating > 5){
+      return alert ("Rating debe estar entre 1 y 5")
+    }else if (input.genres.length === 0){
+      return alert ("Seleccione uno o más géneros")
+    }else if (input.platforms.length === 0){
+      return alert ("Seleccione una o más plataformas")
+  }else {
+    dispatch(postGame(input))
+    alert("Creado con exito!😀")
+    setInput({
+      name: "",
+      image: "",
+      description: "",
+      released: "",
+      rating: "",
+      genres: [],
+      platforms: [],
+    })
+     navigate("/home")
+  }
+}   
+  
+
+  const handleDelete1 = (e) => {
+    setInput({
+      ...input,
+      genres: input.genres.filter((el) => el !== e)
+    })
+  }
+  const handleDelete2 = (e) => {
+    setInput({
+      ...input,
+      platforms: input.platforms.filter((el) => el !== e)
+    })
+  }
+
+  return (
+    <div className={estilos.fondoVGCreate}>
+      <div className={estilos.contenedorAll}>
+      <Link to="/home">
+        <button className={estilos.buttonBackHome} >Volver al Home</button>
+      </Link>
+      <h1 className={estilos.titulo}>** Crear Nuevo Juego **</h1>
+
+      <form onSubmit={handleSubmit}>
+        <div className={estilos.item}>
+          <label className={estilos.label}>Nombre del Juego</label>
+          <br></br>
+            <input 
+            className={estilos.input}
+            type= "text"
+            value= {input.name}
+            name = "name"
+            onChange={handleChange}
+            />
+        </div>
+
+        <div className={estilos.item}>
+          <label className={estilos.label}>🏆Rating</label>
+          <br></br>
+            <input 
+              className={estilos.input}
+              type= "number"
+              value= {input.rating}
+              name = "rating"
+              onChange={handleChange}
+              />
+        </div>
+
+        <div className={estilos.item}>
+          <label className={estilos.label}>Descripción</label>
+          <br></br>
+            <textarea 
+              className={estilos.inputDescription}
+              type= "text"
+              value= {input.description}
+              name = "description"
+              onChange={handleChange}
+              />
+        </div>
+
+        <div className={estilos.item}>
+          <label className={estilos.label}>Fecha Lanzamiento</label>
+          <br></br>
+            <input 
+              className={estilos.input}
+              type= "date"
+              value= {input.released}
+              name = "released"
+              onChange={handleChange}
+              />
+        </div>
+
+        <div className={estilos.item}>
+          <label className={estilos.label}>Imagen</label>
+          <br></br>
+          <input
+          className={estilos.input}
+          onChange={(p) => handleFileImage(p)}
+          type="file"
+          name="imageFile"
+          accept="image/jpeg, image/png"
+          autoComplete='off' />
+          <br></br>
+          <span className={estilos.extensions}>Extenciones Soportadas: jpg/jpeg/png</span>
+          <br></br>
+          <img className={estilos.displayImg} src={input.image || Placeholder} alt='No Img' />
+        </div>
+
+        <div className={estilos.item}>
+          <label className={estilos.label}>Generos</label>
+          <br></br>
+          <select 
+            className={estilos.select}
+            defaultValue="select"
+            onChange = {handleSelect}
+            >
+            <option className={estilos.select} disabled>Generos</option>
+            {
+              genres?.map((e) => {
+                return (
+                <option className={estilos.select} value={e.name} key={e.id}>{e.name}</option>
+                )})
+            }
+            </select>
+            
+            <ul className="ul">
+                {input.genres.map((e) => (
+                  <li key={e} className={estilos.listaGP}>
+                    <div className={estilos.divGP}>
+                      {e + " "}
+                      <button className={estilos.buttonx} type='button' onClick={() => handleDelete1(e)}>
+                        X
+                      </button>
+                    </div>
+                  </li>
+                ))}
+            </ul>
+        </div>  
+
+        <div className={estilos.item}>
+          <label className={estilos.label}>Plataforma</label>
+            <br></br>
+              <select 
+                className={estilos.select}
+                defaultValue="platforms"
+                onChange = {handleSelect2}
+                >
+                <option className={estilos.select} disabled>Plataformas</option>
+                {
+                  platforms?.map((e) => {
+                    return (
+                    <option className={estilos.select} value={e} key={e}>{e}</option>
+                    )})
+                }
+            </select>
+            <ul className="ul">
+                {input.platforms.map((e) => (
+                  <li key={e} className={estilos.listaGP}>
+                    <div className={estilos.divGP}>
+                      {e + " "}
+                      <button className={estilos.buttonx} type='button' onClick={() => handleDelete2(e)}>
+                        X
+                      </button>
+                    </div>
+                  </li>
+                ))}
+            </ul>
+        </div>  
+        <br></br>
+        <button className={estilos.buttonCreate} type='submit'>Crear Juego!</button>
+      </form>
+    </div>
+  </div>
+  )
+}
+

@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
     platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING)
     },       
-    createInDb: {
+    createdInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
