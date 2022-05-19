@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getNameGames , clearGame } from '../Redux/actions/index'
-import style from "../Estilos/SerchBar.module.css"
+import estilos from "../Estilos/SerchBar.module.css"
 
 export default function SerchBar() {
   const [input , setInput] = useState('')
@@ -41,10 +41,10 @@ export default function SerchBar() {
   
 
   return (
-    <div className={style.searchbar}>
+    <div className={estilos.searchbar}>
       <form onSubmit={handleSubmit} >
         <div>
-        <input className={style.input} 
+        <input className={estilos.input} 
         name="name"
         type="text"
         placeholder = "Buscar Juego..."
@@ -52,11 +52,11 @@ export default function SerchBar() {
         onChange = {handleInputChange}
         />
         {errors.name && (
-        <div className={style.errors}>
+        <div className={estilos.errors}>
         <p>{errors.name}</p>
         </div>
        )}
-        <button className= {style.button} type='submit'>Buscar</button>
+        <button className= {estilos.button} type='submit'>Buscar</button>
         </div>
       
       </form>

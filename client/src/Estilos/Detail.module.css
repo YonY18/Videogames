@@ -68,12 +68,12 @@
   text-transform: uppercase;
   font-weight: 900;
   border-radius: 0.5rem;
-  border: solid 1px #e6215e;
+  border: solid 1px #5e143a;
   margin-bottom: 1rem;
 }
 
 .buttonBack:hover {
   cursor: pointer;
-  background-color: #e6215e;
+  background-color: #fa3898;
   transform: translateY(-4px);
 }

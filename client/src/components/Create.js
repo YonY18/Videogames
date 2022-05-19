@@ -75,13 +75,12 @@ export default function GameCreate() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if(!input.name.trim()){
-      return alert("Need to put name")
-    }else if(
-      allVideogames.find(e => 
-         e.name.toLowerCase().trim() === input.name.toLowerCase().trim()
-      )
-    ){
+      return alert("Necesita introducir un Nombre")
+    }else if(allVideogames.find(e => 
+         e.name.toLowerCase().trim() === input.name.toLowerCase().trim())){
       return alert(`El nombre ${input.name} ya existe`)
+    }else if (input.name.length < 3 || input.name.length > 50){
+      return alert("Nombre debe ser entre 3 y 50 caracteres")
     }else if (input.description.trim() === ""){
       return alert("Descripcion requerida")
     }else if(input.released.trim() === ""){
@@ -125,13 +124,12 @@ export default function GameCreate() {
   }
 
   return (
-    <div className={estilos.fondoVGCreate}>
+    <div className={estilos.fondoCreate}>
       <div className={estilos.contenedorAll}>
       <Link to="/home">
-        <button className={estilos.buttonBackHome} >Volver al Home</button>
+        <button className={estilos.buttonCreate} >Volver al Home</button>
       </Link>
       <h1 className={estilos.titulo}>** Crear Nuevo Juego **</h1>
-
       <form onSubmit={handleSubmit}>
         <div className={estilos.item}>
           <label className={estilos.label}>Nombre del Juego</label>
@@ -216,8 +214,8 @@ export default function GameCreate() {
             
             <ul className="ul">
                 {input.genres.map((e) => (
-                  <li key={e} className={estilos.listaGP}>
-                    <div className={estilos.divGP}>
+                  <li key={e} className={estilos.listaP}>
+                    <div className={estilos.divP}>
                       {e + " "}
                       <button className={estilos.buttonx} type='button' onClick={() => handleDelete1(e)}>
                         X

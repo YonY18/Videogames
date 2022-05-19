@@ -13,11 +13,11 @@
 
 .botonPaginado {
   border-radius: 0.5rem;
-  border: solid 1px #e6215e;
+  border: solid 1px #5e143a;
   font-weight: bold;
   font-size: 18px;
   color: #000000;
-  background-color: #e6215e;
+  background-color: #5e143a;
   border: none;
   border-radius: 2px;
   padding: 4px 10px;
@@ -26,17 +26,17 @@
 
 .botonPaginado:hover {
   cursor: pointer;
-  background-color: #191630;
-  color: #e6215e;
+  background-color: #fa3898;
+  color: #000000;
 }
 
 .buttonPN{
   border-radius: 0.5rem;
-  border: solid 1px #e6215e;
+  border: solid 1px #5e143a;
   font-weight: bold;
   font-size: 18px;
   color: #000000;
-  background-color: #e6215e;
+  background-color: #5e143a;
   border: none;
   border-radius: 2px;
   padding: 4px 10px;
@@ -45,6 +45,6 @@
 
 .buttonPN:hover {
   cursor: pointer;
-  background-color: #191630;
-  color: #e6215e;
+  background-color: #fa3898;
+  color: #000000;
 }

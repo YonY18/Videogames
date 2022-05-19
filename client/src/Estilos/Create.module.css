@@ -1,4 +1,4 @@
-.fondoVGCreate {
+.fondoCreate {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -22,22 +22,21 @@
   }
 }
 
-/*#42bcd582*/
-
-.buttonBackHome {
+.buttonCreate {
   padding: 1rem;
   background-color: #191630;
   color: #42bcd5;
-  font-size: 1.5 rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 900;
   border-radius: 0.5rem;
   border: solid 1px #e6215e;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
-.buttonBackHome:hover {
+.buttonCreate:hover {
   cursor: pointer;
   background-color: #e6215e;
+  transform: translateY(-4px);
 }
 
 .titulo {
@@ -53,7 +52,7 @@
 .label {
   letter-spacing: 5px;
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .extensions {
@@ -91,7 +90,7 @@
   width: 90%;
   font-weight: bold;
   border-radius: 10px;
-  border: solid 1px #e6215e;
+  border: solid 1px #fa3898;
   background-color: #191630;
   color: #42bcd5;
   font-size: 16px;
@@ -104,6 +103,7 @@
 
 .select {
   font-weight: bold;
+  font-size: 1.5rem;
   margin: 1rem auto;
   display: block;
   padding: 1rem;
@@ -111,7 +111,7 @@
   background-color: #191630;
   border-radius: 0.5rem;
   border: solid 1px #191630;
-  color: #e6215e;
+  color: #fa3898;
 }
 @media (min-width: 768px) {
   .select {
@@ -119,29 +119,20 @@
   }
 }
 
-.listaGP {
+.listaP {
   display: inline-flex;
   font-weight: bold;
 }
 
-.divGP {
+.divP {
   font-size: 14px;
   font-weight: bold;
+  color: #fff;
 }
 
 .buttonx {
   border-radius: 0.7rem;
   border: solid 1px #191630;
-  background-color: #42bcd5;
+  background-color: #fa3898;
 }
 
-.buttonCreate {
-  padding: 1rem;
-  background-color: #191630;
-  color: #42bcd5;
-  font-size: 1.5 rem;
-  text-transform: uppercase;
-  font-weight: 900;
-  border-radius: 0.5rem;
-  border: solid 1px #e6215e;
-}

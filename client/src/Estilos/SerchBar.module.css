@@ -1,17 +1,22 @@
 .searchbar {
-  width: 90%;
   margin: 0 auto;
   padding: 2rem 0;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-end: 1;
 }
 .searchbar form {
-  display: flex;
+  width: 100%;
+  padding: -0.5rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 900;
   justify-content: center;
 }
 
 .searchbar div {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
-  grid-template-rows: 35px 40px;
 }
 .searchbar .errors {
   grid-column: 1/3;
@@ -21,7 +26,7 @@
 .input {
   padding: 1rem;
   border-radius: 0.5rem;
-  border: solid 1px #e6215e;
+  border: solid 1px #5e143a;
   background-color: #191630;
   color: #42bcd5;
   margin-right: 2rem;
@@ -41,19 +46,19 @@
   text-transform: uppercase;
   font-weight: 900;
   border-radius: 0.5rem;
-  border: solid 1px #e6215e;
+  border: solid 1px #5e143a;
   grid-column: 2/3;
   grid-row: 1/2;
 }
 
 .button:hover {
   cursor: pointer;
-  background-color: #e6215e;
+  background-color: #fa3898;
 }
 
 .errors p {
   font-size: 1.4rem;
-  font-weight: bold;
+  font-weight: lighter;
   color: red;
   text-align: left;
 }

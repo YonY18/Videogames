@@ -69,8 +69,8 @@ export default function Home() {
 
   return (
     <>
-      <div className={estilos.clase2}>
-        <div className={estilos.contenidoTitulo}>
+      <div >
+        <div >
           <h1 className={estilos.titulo}>** Bienvenidos a mi App de Juegos **</h1>
           <NavBar
             handleClick={handleClick}
@@ -88,7 +88,7 @@ export default function Home() {
                 paginado={paginado}
                 currentPage={currentPage}
               />
-              <div className={estilos.filtrosTarjetas}>
+              <div>
                 <div className={estilos.contenedorCards}>
                   {currentGames?.map((p) => {
                     return (
