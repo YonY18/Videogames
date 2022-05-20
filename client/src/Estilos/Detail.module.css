@@ -17,12 +17,13 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  
 }
 .contenedorSecundario {
   box-sizing: border-box;
   border-radius: 5px;
   border-color: #00a2f0;
-  background-color: rgba(255, 255, 255, 0.287);
+  background-color: rgb(70, 22, 70);
   margin-top: 1.5%;
   margin-left: 5%;
   margin-right: 5%;
@@ -70,7 +71,7 @@
   padding: 1rem;
   background-color: #191630;
   color: #42bcd5;
-  font-size: 1.5 rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 900;
   border-radius: 0.5rem;
