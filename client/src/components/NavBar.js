@@ -4,12 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import estilos from '../Estilos/NavBar.module.css'
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import Videomp4 from '../Assets/video.mp4';
+import Videowebm from '../Assets/video.webm';
 
 export default function NavBar({ handleOrder, handleOrderRating, handleFilterCreated, handleFilterGenres, handleClick }) {
   const genres = useSelector(state => state.genres)
   return (
 
     <div className={estilos.contenedorFiltro}>
+      <h1 className={estilos.titulo}>** Bienvenidos a mi App de Juegos **</h1>
+      <video autoPlay muted className={estilos.video}>
+        <source src={Videomp4} type="video/mp4"></source>
+        <source src={Videowebm} type="video/webm"></source>
+      </video>
       <Link to='/'><button className={estilos.button}>Lanzamiento</button></Link>
       <Link to='/videogame'>
         <button className={estilos.button}>Crear</button>
@@ -19,7 +26,7 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
       <div className={estilos.contenedorOrden}>
         <SearchBar />
         <div className={estilos.navBar1}>
-        <label className={estilos.label}>Ordenar: </label>
+          <label className={estilos.label}>Ordenar: </label>
           <select
             className={estilos.select}
             defaultValue='Order'
@@ -40,7 +47,7 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
           </select>
         </div>
         <div className={estilos.navBar2}>
-        <label className={estilos.label}>Ordenar por: </label>
+          <label className={estilos.label}>Ordenar por: </label>
           <select
             className={estilos.select}
             defaultValue='Genres'

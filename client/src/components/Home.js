@@ -71,7 +71,7 @@ export default function Home() {
     <>
       <div >
         <div >
-          <h1 className={estilos.titulo}>** Bienvenidos a mi App de Juegos **</h1>
+          
           <NavBar
             handleClick={handleClick}
             orderByName={orderByName}
