@@ -12,7 +12,7 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
   return (
 
     <div className={estilos.contenedorFiltro}>
-      <h1 className={estilos.titulo}>** Bienvenidos a mi App de Juegos **</h1>
+      <h1 className={estilos.titulo}>Bienvenidos a Games Room</h1>
       <video autoPlay muted className={estilos.video}>
         <source src={Videomp4} type="video/mp4"></source>
         <source src={Videowebm} type="video/webm"></source>

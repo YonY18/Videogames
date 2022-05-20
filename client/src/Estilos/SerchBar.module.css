@@ -28,7 +28,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   border: solid 1px #5e143a;
-  background-color: #191630;
+  background-color: #0b1d3e;
   color: #42bcd5;
   margin-right: 2rem;
   grid-column: 1/2;
@@ -41,7 +41,7 @@
 }
 .button {
   padding: 1rem;
-  background-color: #191630;
+  background-color: #0b1d3e;
   color: #42bcd5;
   font-size: 1.5 rem;
   text-transform: uppercase;
@@ -54,7 +54,8 @@
 
 .button:hover {
   cursor: pointer;
-  background-color: #fa3898;
+  background-color: #062e7c;
+  transform: translateY(-4px);
 }
 
 .errors p {

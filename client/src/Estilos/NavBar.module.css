@@ -32,7 +32,7 @@
 .video{
   position: absolute;
   width: 100%;
-  height: 31.5vh;
+  height: 26rem;
   object-fit: cover;
   top:0;
   left:0;
@@ -55,6 +55,7 @@ video.fillWidth {
 
 .contenedorFiltro{
   padding: 2rem;
+  height: 26rem;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.436) 0%, rgba(52, 16, 52, 0.327) 94%, rgba(113, 23, 88, 0.618) 100%);
 }
 
@@ -99,7 +100,7 @@ video.fillWidth {
 }
 .button {
   padding: 1rem;
-  background-color: #191630;
+  background-color: #0b1d3e;
   color: #42bcd5;
   font-size: 1.3rem;
   text-transform: uppercase;
@@ -110,7 +111,7 @@ video.fillWidth {
 }
 .button:hover {
   cursor: pointer;
-  background-color: #fa3898;
+  background-color: #062e7c;
   transform: translateY(-4px);
 }
 

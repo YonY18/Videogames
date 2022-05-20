@@ -1,17 +1,23 @@
-.fondoDetail {
-  width: 100vw;
-  height: 100vh;
-  background-attachment: fixed;
-  overflow: auto;
-}
 
+.navbar{
+  padding-top: 2rem;
+  height: 8rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.436) 0%, rgba(201, 9, 201, 0.425) 80%, rgba(214, 17, 158, 0.575) 100%);
+}
 .contenedorGeneral {
   box-sizing: border-box;
   border-radius: 30px;
   margin: 3rem auto;
   padding-top: 5px;
 }
-
+.imagen{
+  padding-top: 1rem;
+  background: url('../Assets/info.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .contenedorSecundario {
   box-sizing: border-box;
   border-radius: 5px;

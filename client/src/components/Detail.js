@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { getDetail , vaciarDetail } from '../Redux/actions'
+import { getDetail, vaciarDetail } from '../Redux/actions'
 import Loading from './Loading'
 import estilos from "../Estilos/Detail.module.css"
 
@@ -16,33 +16,37 @@ export default function Detail() {
     return function () {
       dispatch(vaciarDetail())
     }
-  },[dispatch, id])
+  }, [dispatch, id])
   console.log(allDetails)
 
   return (
-    <div className= {estilos.fondoDetail}>
-      { allDetails.length !== 0 ? (
-        <div className= {estilos.contenedorGeneral}>
-          <h1 className= {estilos.tituloName}>{allDetails.name}</h1>
-          <img className= {estilos.image} src={allDetails.image} alt=""/>
-          <div className= {estilos.contenedorSecundario}>
-            <h4 className= {estilos.items}>Fecha Lanzamiento: {allDetails.released}</h4>
-            <h4 className= {estilos.items}>🏆Rating: {allDetails.rating} </h4>
-            <h4 className= {estilos.items}>Platforma: {allDetails.platforms}</h4>
-            <h4 className= {estilos.items}>
-              Generos: 
+    <div>
+      <div className={estilos.navbar}>
+      <Link to="/home">
+        <button className={estilos.buttonBack}>Volver al Home</button>
+      </Link>
+      </div>
+      {allDetails.length !== 0 ? (
+        <div className={estilos.imagen}>
+        <div className={estilos.contenedorGeneral}>
+          <h1 className={estilos.tituloName}>{allDetails.name}</h1>
+          <img className={estilos.image} src={allDetails.image} alt="" />
+          <div className={estilos.contenedorSecundario}>
+            <h4 className={estilos.items}>Fecha Lanzamiento: {allDetails.released}</h4>
+            <h4 className={estilos.items}>🏆Rating: {allDetails.rating} </h4>
+            <h4 className={estilos.items}>Platforma: {allDetails.platforms}</h4>
+            <h4 className={estilos.items}>
+              Generos:
               {allDetails.genres?.map((g) => g.name).join(", ")}
             </h4>
-            <h4 className= {estilos.items}>Description: </h4>
-            <p 
-            className={estilos.descriptionDetail}
-            dangerouslySetInnerHTML = {{__html: allDetails.description }}/>
+            <h4 className={estilos.items}>Description: </h4>
+            <p
+              className={estilos.descriptionDetail}
+              dangerouslySetInnerHTML={{ __html: allDetails.description }} />
           </div>
-          <Link to="/home">
-          <button className= {estilos.buttonBack}>Volver al Home</button>
-          </Link>
         </div>
-      ):<Loading/>}
+        </div>
+      ) : <Loading />}
     </div>
   )
 }

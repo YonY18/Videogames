@@ -31,9 +31,7 @@ export default function Home() {
   const indexOfFirstGame = indexOfLastGame - gamesPerPage
   const currentGames = allGames.slice(indexOfFirstGame, indexOfLastGame)
 
-  const paginado = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
+  const paginado = pageNumber => setCurrentPage(pageNumber)
 
   useEffect(() => {
     dispatch(getGames())
