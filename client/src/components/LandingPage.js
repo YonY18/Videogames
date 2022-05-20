@@ -17,7 +17,7 @@ export default function LandingPage() {
                 <source src={Videowebm} type="video/webm"></source>
             </video>
             <div>
-            <audio id="myAudio" controls autoPlay>
+            <audio id="myAudio" autoPlay>
                 <source src={audiowebm} type="audio/ogg"></source>
                 <source src={audiomp3} type="audio/mpeg"></source>
             </audio>
