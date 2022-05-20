@@ -1,6 +1,6 @@
 .contenedorFiltro{
   padding: 2rem;
-  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(47, 255, 0, 0.327) 94%, rgba(0, 255, 106, 0.618) 100%);
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(47, 255, 0, 0.327) 94%, rgba(16, 193, 90, 0.618) 100%);
 }
 .label{
   color: white;
@@ -34,7 +34,12 @@
   background-color: #5e143a;
   border-radius: 0.5rem;
   border: solid 1px #191630;
-  color: #191630;
+  color: #000000;
+}
+.select:hover {
+  cursor: pointer;
+  background-color: #fa3898;
+  transform: translateY(-4px);
 }
 .button {
   padding: 1rem;
