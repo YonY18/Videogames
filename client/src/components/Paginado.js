@@ -13,33 +13,53 @@ export default function Paginado({ gamesPerPage, allGames, paginado, currentPage
   return (
     <nav>
       <ul className={estilos.ul}>
-        {
-          currentPage - 1 > 0 ? (
-            <button className={estilos.buttonPN} onClick={() => paginado(currentPage - 1)} >Prev</button>
-          )
-            : null
-        }
-        {pageNumbers.map(number => (
-          <li className={estilos.li} key={number}>
-            <button className={estilos.botonPaginado} onClick={() => paginado(number)}>{number}</button>
-          </li>
-        ))}
-        {
-          currentPage < Paginas ? (
-            <button className={estilos.buttonPN} onClick={() => paginado(currentPage + 1)} >Next</button>
-          )
-            : null
+        {Paginas > 1 ? <>
+          {
+            currentPage - 1 > 0 ? (
+              <button className={estilos.buttonPN} onClick={() => paginado(currentPage - 1)} >Prev</button>
+            )
+              : null
+          }
+          {currentPage >= 3 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage - 2)}>{currentPage - 2}</button></li> : null}
+          {currentPage >= 2 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage - 1)}>{currentPage - 1}</button></li> : null}
+          <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage)}>{currentPage}</button></li>
+          {currentPage <= pageNumbers.length - 1 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage + 1)}>{currentPage + 1}</button></li> : null}
+          {currentPage <= pageNumbers.length - 2 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage + 2)}>{currentPage + 2}</button></li> : null}
+          {
+            currentPage < Paginas ? (
+              <button className={estilos.buttonPN} onClick={() => paginado(currentPage + 1)} >Next</button>
+            )
+              : null
+          }
+        </>
+          : null
         }
       </ul>
     </nav>
   )
 }
-/*      
-{ 
-  pageNumbers && pageNumbers.map(number => (
-  <li className={estilos.li} key={number}>
-    <button className={estilos.botonPaginado} onClick={() => paginado(number)}>{number}</button>
-  </li>
-  ))
-}
+
+
+/* Paginado simple     
+          {pageNumbers.map(number => (
+            <li className={estilos.li} key={number}>
+              <button className={estilos.botonPaginado} onClick={() => paginado(number)}>{number}</button>
+            </li>
+          ))}
+
+          {
+        currentPage - 1 > 0 ? (
+          <button className={estilos.buttonPN} onClick={() => paginado(currentPage - 1)} >Prev</button>
+        ) : null
+      }
+      {currentPage>=3 ?  <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage-2)}>{currentPage-2}</button></li> : null}
+      {currentPage>=2 ? <li><button className={estilos.botonPaginado}  onClick={() => paginado(currentPage-1)}>{currentPage-1}</button></li> : null}
+      <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage)}>{currentPage}</button></li>
+      {currentPage<=22 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage+1)}>{currentPage+1}</button></li>: null}
+      {currentPage<=23 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage+2)}>{currentPage+2}</button></li>: null} 
+      {
+        currentPage < Paginas ? (
+          <button className={estilos.buttonPN} onClick={() => paginado(currentPage + 1)} >Next</button>
+        ) : null
+      }
 */

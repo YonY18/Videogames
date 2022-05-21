@@ -21,17 +21,17 @@ import Error from './Error';
 export default function Home() {
   const dispatch = useDispatch()
   const allGames = useSelector(state => state.videogames)
-  const genres = useSelector(state => state.genres)
+
   const [currentPage, setCurrentPage] = useState(1)
   const [gamesPerPage, setGamesPerPage] = useState(15)
-  const [sort, setSort] = useState()
-  const [sortRating, setSortRating] = useState()
-
   const indexOfLastGame = currentPage * gamesPerPage
   const indexOfFirstGame = indexOfLastGame - gamesPerPage
   const currentGames = allGames.slice(indexOfFirstGame, indexOfLastGame)
 
   const paginado = pageNumber => setCurrentPage(pageNumber)
+
+  const [sort, setSort] = useState()
+  const [sortRating, setSortRating] = useState()
 
   useEffect(() => {
     dispatch(getGames())
