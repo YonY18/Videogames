@@ -22,7 +22,7 @@ export default function Paginado({ gamesPerPage, allGames, paginado, currentPage
           }
           {currentPage >= 3 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage - 2)}>{currentPage - 2}</button></li> : null}
           {currentPage >= 2 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage - 1)}>{currentPage - 1}</button></li> : null}
-          <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage)}>{currentPage}</button></li>
+          <li><button className={estilos.botonPaginado1} onClick={() => paginado(currentPage)}>{currentPage}</button></li>
           {currentPage <= pageNumbers.length - 1 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage + 1)}>{currentPage + 1}</button></li> : null}
           {currentPage <= pageNumbers.length - 2 ? <li><button className={estilos.botonPaginado} onClick={() => paginado(currentPage + 2)}>{currentPage + 2}</button></li> : null}
           {

@@ -23,13 +23,28 @@
   padding: 4px 10px;
   margin: 1px 1px;
 }
-
+.botonPaginado1{
+  border-radius: 0.5rem;
+  border: solid 1px #5e143a;
+  font-weight: bold;
+  font-size: 18px;
+  color: #000000;
+  background-color: #ac2169;
+  border: none;
+  border-radius: 2px;
+  padding: 4px 10px;
+  margin: 1px 1px;
+}
 .botonPaginado:hover {
   cursor: pointer;
   background-color: #fa3898;
   color: #000000;
 }
-
+.botonPaginado1:hover {
+  cursor: pointer;
+  background-color: #fa3898;
+  color: #000000;
+}
 .buttonPN{
   border-radius: 0.5rem;
   border: solid 1px #5e143a;
