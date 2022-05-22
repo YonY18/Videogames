@@ -101,7 +101,11 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         videogames: []
       }
-
+    case 'DELETE_VIDEOGAME': {
+      return {
+        ...state,
+      }
+    }
     default:
       return state
   }

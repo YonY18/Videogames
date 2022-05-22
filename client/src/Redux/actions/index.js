@@ -105,3 +105,16 @@ export function clearGame(){
         })
     }
 }
+
+export const deleteVideogame = (id) => {
+    return async function(dispatch){
+        try{
+            await axios.delete('http://localhost:3001/videogames/' + id)
+            return dispatch({
+                type: 'DELETE_VIDEOGAME',
+            })
+        }catch(err){
+            console.log(err)
+        }
+    }
+}

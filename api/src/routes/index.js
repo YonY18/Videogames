@@ -117,5 +117,19 @@ router.post('/videogame', async (req, res) => {
     createVideoGame.addGenre(searchGenre)
     res.send("Videogame created successfully")
 })
+router.delete('/videogames/:id', async (req, res) => {
+  try{
+    const { id } = req.params;
+    const deletedGame = await Videogame.findByPk(id);
+    if(deletedGame){
+        await deletedGame.destroy();
+        return res.send('Juego eliminado!');
+    }
+    res.status(400).send('Juego no encontrado');
+    }catch(err){
+        res.status(400).send({errMsg: err})
+    }
+});
+
 
 module.exports = router;
