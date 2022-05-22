@@ -9,6 +9,7 @@ import Videowebm from '../Assets/video.webm';
 
 export default function NavBar({ handleOrder, handleOrderRating, handleFilterCreated, handleFilterGenres, handleClick }) {
   const genres = useSelector(state => state.genres)
+  
   return (
 
     <div className={estilos.contenedorFiltro}>
@@ -32,7 +33,7 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
             defaultValue='Order'
             onChange={handleOrder}
           >
-            <option value='Order' disabled>Alfabeticamente</option>
+            <option value='Order' disabled>📋Alfabeticamente</option>
             <option value='Asc'>A-Z</option>
             <option value='Desc'>Z-A</option>
           </select>
@@ -50,10 +51,10 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
           <label className={estilos.label}>Ordenar por: </label>
           <select
             className={estilos.select}
-            defaultValue='Genres'
+            defaultValue='🎮Generos'
             onChange={handleFilterGenres}
           >
-            <option className="options" disabled>Generos</option>
+            <option className="options" disabled>🎮Generos</option>
             <option className="options" value="All">All</option>
             {
               genres.map((e) => (
@@ -65,10 +66,10 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
           </select>
           <select
             className={estilos.select}
-            defaultValue='filtrados'
+            defaultValue='🐱‍👤Origen'
             onChange={handleFilterCreated}
           >
-            <option className="options" disabled>Origen</option>
+            <option className="options" disabled>🐱‍👤Origen</option>
             <option className="options" value='All'>All</option>
             <option className="options" value='created'>Created </option>
             <option className="options" value='api'>Api</option>

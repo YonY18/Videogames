@@ -19,6 +19,7 @@ import Loading from './Loading';
 import Error from './Error';
 
 export default function Home() {
+  const [refresh, setRefresh] = useState(false);
   const dispatch = useDispatch()
   const allGames = useSelector(state => state.videogames)
 
@@ -46,17 +47,20 @@ export default function Home() {
   const handleFilterGenres = (p) => {
     dispatch(filterByGenres(p.target.value))
     setCurrentPage(1)
+    setRefresh((prevState) => !prevState); // refresh 
   }
 
   const handleFilterCreated = (p) => {
     dispatch(filterCreated(p.target.value))
     setCurrentPage(1)
+    setRefresh((prevState) => !prevState);
   }
 
   const handleOrder = (p) => {
     dispatch(orderByName(p.target.value))
     setCurrentPage(1)
     setSort(p.target.value)
+    setRefresh((prevState) => !prevState);
   }
 
   const handleOrderRating = (p) => {
