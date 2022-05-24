@@ -18,7 +18,7 @@ export default function Detail() {
       dispatch(vaciarDetail())
     }
   }, [dispatch, id])
-  console.log(allDetails)
+ // console.log(allDetails)
 
   const handleDelete = () =>{
     dispatch(deleteVideogame(id));
