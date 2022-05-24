@@ -12,7 +12,7 @@ router.get('/videogames', async (req, res) => {
         if (name) {
           const videogameName = videogamesTotal.filter((e) =>
             e.name.toLowerCase().includes(name.toLowerCase())
-          );
+          ).slice(0,15);
           try {
             res.status(200).send(videogameName)
           } catch (error) {

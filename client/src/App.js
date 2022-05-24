@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home'
 import Create from './components/Create'
 import Detail from './components/Detail';
+import NotFoundPage from './components/NotFoundPage'
 import "./Estilos/normalize.css"
 
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
           <Route exact path='/' element={<LandingPage/>}/>
           <Route exact path='/home' element={<Home/>}/>
           <Route exact path='/videogames/:id' element={<Detail/>} />
-          <Route exact path='/videogame' element={<Create/>}/>  
+          <Route exact path='/videogame' element={<Create/>}/>
+          <Route path= '*' element={<NotFoundPage/>} />
         </Routes>
       </div>
     </BrowserRouter>
