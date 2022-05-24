@@ -40,7 +40,7 @@ export function getGenres() {
 }
 export function getDetail(id) {
     return function (dispatch){
-        axios.get(`http://localhost:3001/videogame/${id}`)
+        axios.get(`http://localhost:3001/videogames/${id}`)
     
         .then(game => {
             console.log(game.data)
