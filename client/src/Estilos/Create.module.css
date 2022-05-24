@@ -42,7 +42,32 @@
 .titulo {
   color: #fff;
   font-size: 3rem;
-  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 2rem auto;
+  font-family: "Vibur", sans-serif;
+  animation: flicker 1.5s infinite alternate;   
+}
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px rgb(234, 0, 255),
+      0 0 40px rgba(204, 0, 255, 0.867),
+      0 0 80px rgba(204, 0, 255, 0.855),
+      0 0 90px rgba(255, 0, 251, 0.7),
+      0 0 100px rgba(255, 0, 242, 0.688),
+      0 0 150px rgba(255, 0, 204, 0.527);
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
 }
 
 .item {

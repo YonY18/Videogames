@@ -79,8 +79,8 @@ export default function GameCreate() {
     }else if(allVideogames.find(e => 
          e.name.toLowerCase().trim() === input.name.toLowerCase().trim())){
       return alert(`El nombre ${input.name} ya existe`)
-    }else if (input.name.length < 3 || input.name.length > 50){
-      return alert("Nombre debe ser entre 3 y 50 caracteres")
+    }else if (input.name.length < 3 || input.name.length > 40){
+      return alert("Nombre debe ser entre 3 y 40 caracteres")
     }else if (input.description.trim() === ""){
       return alert("Descripcion requerida")
     }else if(input.released.trim() === ""){
@@ -149,6 +149,7 @@ export default function GameCreate() {
             <input 
               className={estilos.input}
               type= "number"
+
               value= {input.rating}
               name = "rating"
               onChange={handleChange}
@@ -244,8 +245,8 @@ export default function GameCreate() {
             </select>
             <ul className="ul">
                 {input.platforms.map((e) => (
-                  <li key={e} className={estilos.listaGP}>
-                    <div className={estilos.divGP}>
+                  <li key={e} className={estilos.listaP}>
+                    <div className={estilos.divP}>
                       {e + " "}
                       <button className={estilos.buttonx} type='button' onClick={() => handleDelete2(e)}>
                         X
