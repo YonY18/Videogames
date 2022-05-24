@@ -27,34 +27,29 @@ export function getNameGames(name) {
     }
 }
 export function getGenres() {
-    return function (dispatch) {
-        try {
-            axios.get("http://localhost:3001/genres")
-                .then((generos) => {
-                    return dispatch({
-                        type: 'GET_GENRE',
-                        payload: generos.data
-                    });
-                })
-        } catch (err) {
-            console.log(err)
-        }
+    return function (dispatch){
+        axios.get("http://localhost:3001/genres")
+        .then((generos) => {
+            return dispatch ({
+                type: "GET_GENRE",
+                payload: generos.data
+            });
+        })
+        .catch((error) => console.log(error))
     }
 }
 export function getDetail(id) {
-    return function (dispatch) {
-        try {
-            axios.get(`http://localhost:3001/videogames/${id}`)
-                .then(game => {
-                    console.log(game.data)
-                    dispatch({
-                        type: 'GET_DETAIL',
-                        payload: game.data
-                    });
-                })
-        } catch (err) {
-            console.log(err)
-        }
+    return function (dispatch){
+        axios.get(`http://localhost:3001/videogame/${id}`)
+    
+        .then(game => {
+            console.log(game.data)
+            dispatch({
+                type: "GET_DETAIL",
+                payload: game.data
+            });
+        })
+        .catch((error) => console.log(error))
     }
 }
 

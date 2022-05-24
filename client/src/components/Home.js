@@ -40,7 +40,7 @@ export default function Home() {
     dispatch(getGenres())
   }, [dispatch])
 
-  const handleClick = (p) => {
+  const handleClick = () => {
     window.location.reload();
   };
 
