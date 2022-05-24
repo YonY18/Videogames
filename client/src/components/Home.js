@@ -20,6 +20,7 @@ import Error from './Error';
 
 export default function Home() {
   const [refresh, setRefresh] = useState(false);
+  const [loader, setLoader] = useState(true)
   const dispatch = useDispatch()
   const allGames = useSelector(state => state.videogames)
 
@@ -40,9 +41,12 @@ export default function Home() {
   }, [dispatch])
 
   const handleClick = (p) => {
-    p.preventDefault();
-    dispatch(getGames())
-  }
+    window.location.reload();
+  };
+
+if (currentPage && loader) {
+    setLoader(false)
+}
 
   const handleFilterGenres = (p) => {
     dispatch(filterByGenres(p.target.value))
