@@ -19,7 +19,6 @@ export default function rootReducer(state = initialState, action) {
         videogames: action.payload,
         allVideogames: action.payload,
         platforms: Array.from(new Set(platforms)),
-
       }
     case 'GET_GENRE':
       return {
@@ -48,11 +47,11 @@ export default function rootReducer(state = initialState, action) {
         videogames: action.payload === 'All' ? state.allVideogames : verificacionCreados
       }
     case 'ORDER_BY_NAME':
-      const order = action.payload === 'Asc' ? state.allVideogames.sort((a, b) => {
+      const order = action.payload === 'Asc' ? state.videogames.sort((a, b) => {
         if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
         if (b.name.toLowerCase() > a.name.toLowerCase()) return -1;
         return 0;
-      }) : state.allVideogames.sort((a, b) => {
+      }) : state.videogames.sort((a, b) => {
         if (a.name.toLowerCase() > b.name.toLowerCase()) return - 1;
         if (b.name.toLowerCase() > a.name.toLowerCase()) return 1;
         return 0;
@@ -62,11 +61,11 @@ export default function rootReducer(state = initialState, action) {
         videogames: order
       }
     case 'ORDER_BY_RATING':
-      const orderRating = action.payload === 'low' ? state.allVideogames.sort((a, b) => {
+      const orderRating = action.payload === 'low' ? state.videogames.sort((a, b) => {
         if (a.rating > b.rating) return 1;
         if (b.rating > a.rating) return -1;
         return 0;
-      }) : state.allVideogames.sort((a, b) => {
+      }) : state.videogames.sort((a, b) => {
         if (a.rating > b.rating) return - 1;
         if (b.rating > a.rating) return 1;
         return 0;
@@ -75,6 +74,14 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         videogames: orderRating
       }
+
+      case 'ORDER_MAYORES':
+        const mayores = action.payload === 'mas' ? state.allVideogames.filter((e) => e.rating > 4.6 ) : state.allVideogames
+        return {
+          ...state,
+          videogames: mayores
+        }
+
     case 'GET_NAME_GAMES':
       const errorName = [{ id: 1, error: "El nombre no existe" }]
       const verificacionName = action.payload.length !== 0 ? action.payload : errorName

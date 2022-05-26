@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 import Videomp4 from '../Assets/video.mp4';
 import Videowebm from '../Assets/video.webm';
 
-export default function NavBar({ handleOrder, handleOrderRating, handleFilterCreated, handleFilterGenres, handleClick }) {
+export default function NavBar({ handleOrder, handleOrderRating, handleFilterCreated, handleFilterGenres, handleClick, handleMayores }) {
   const genres = useSelector(state => state.genres)
   
   return (
@@ -74,6 +74,17 @@ export default function NavBar({ handleOrder, handleOrderRating, handleFilterCre
             <option className="options" value='created'>Created </option>
             <option className="options" value='api'>Api</option>
           </select>
+          
+          {/*}<select
+          defaultValue='Traer mayores'
+          onChange={handleMayores}
+          >
+          <option disabled>Traer mayores</option>  
+          <option value='mas'> Mayores</option>
+
+          </select>*/}
+
+
         </div>
       </div>
     </div>

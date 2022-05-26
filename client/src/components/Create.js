@@ -76,14 +76,17 @@ export default function GameCreate() {
     e.preventDefault()
     if (!input.name.trim()) {
       return alert("Necesita introducir un Nombre")
-    } else if (allVideogames.find(e =>
+    }else if (allVideogames.find(e =>
       e.name.toLowerCase().trim() === input.name.toLowerCase().trim())) {
       return alert(`El nombre ${input.name} ya existe`)
     } else if (input.name.length < 3 || input.name.length > 40) {
       return alert("Nombre debe ser entre 3 y 40 caracteres")
     } else if (input.description.trim() === "") {
       return alert("Descripcion requerida")
-    } else if (input.released.trim() === "") {
+    } else if(input.description.length < 3 || input.description.length > 40){
+      return alert("Largo maximo sobrepasado")
+    }
+    else if (input.released.trim() === "") {
       return alert("Fecha de publicacion requerido")
     } else if (input.released < "1951-05-03") {
       return alert("La fecha no puede ser inferior a 05/03/1951")

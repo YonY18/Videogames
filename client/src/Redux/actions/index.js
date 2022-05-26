@@ -132,3 +132,10 @@ export function cleanFilters(){
     }
 
 }
+
+export function filtermayores(payload){
+    return{
+        type:'ORDER_MAYORES',
+        payload,
+    }
+}

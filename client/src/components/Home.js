@@ -10,6 +10,7 @@ import {
   filterCreated,
   orderByName,
   cleanFilters,
+  filtermayores,
 } from '../Redux/actions';
 import NavBar from './NavBar';
 import { Link } from 'react-router-dom';
@@ -52,6 +53,11 @@ export default function Home() {
     setLoader(false)
   }
 
+  /*const handleMayores = (p) =>{
+    dispatch(filtermayores(p.target.value))
+    setCurrentPage(1)
+  }*/
+  
   const handleFilterGenres = (p) => {
     dispatch(filterByGenres(p.target.value))
     setCurrentPage(1)
@@ -89,6 +95,7 @@ export default function Home() {
             handleFilterCreated={handleFilterCreated}
             handleFilterGenres={handleFilterGenres}
             handleOrderRating={handleOrderRating}
+           // handleMayores={handleMayores}
           />
           {allGames.length ?
             <div>

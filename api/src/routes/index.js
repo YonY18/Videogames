@@ -115,7 +115,7 @@ router.post('/videogame', async (req, res) => {
         where: {name: genres},
     });
     createVideoGame.addGenre(searchGenre)
-    res.send("Videogame created successfully")
+    res.send("Videogame creado con exito")
 })
 router.delete('/videogames/:id', async (req, res) => {
   try{
