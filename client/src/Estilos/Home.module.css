@@ -7,14 +7,6 @@
   margin: 0 auto;
 }
 
-.error {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-}
-
 
 .henry {
   padding: 1rem;

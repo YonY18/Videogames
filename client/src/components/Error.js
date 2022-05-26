@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector} from "react-redux";
-
+import estilos from '../Estilos/Errors.module.css'
 
 export default function Error() {
     const errores = useSelector(state => state.videogames)
@@ -8,7 +8,7 @@ export default function Error() {
     <div>
         {errores?.map((e) => {
                 return (
-                    <div key={e.id}>
+                    <div className={estilos.contenedorError} key={e.error}>
                         <p>{e.error}</p>
                     </div>
                 )
@@ -17,4 +17,3 @@ export default function Error() {
     </div>
   )
 }
-

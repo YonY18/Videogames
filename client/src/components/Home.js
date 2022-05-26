@@ -2,14 +2,15 @@
 import React from 'react';
 import { useState, useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-  getGames, 
-  getGenres, 
-  filterByGenres, 
+import {
+  getGames,
+  getGenres,
+  filterByGenres,
   orderByRating,
-  filterCreated, 
-  orderByName, 
-  } from '../Redux/actions';
+  filterCreated,
+  orderByName,
+  cleanFilters,
+} from '../Redux/actions';
 import NavBar from './NavBar';
 import { Link } from 'react-router-dom';
 import estilos from '../Estilos/Home.module.css';
@@ -38,15 +39,18 @@ export default function Home() {
   useEffect(() => {
     dispatch(getGames())
     dispatch(getGenres())
+    return () => {
+      dispatch(cleanFilters());
+    }
   }, [dispatch])
 
   const handleClick = () => {
     window.location.reload();
   };
 
-if (currentPage && loader) {
+  if (currentPage && loader) {
     setLoader(false)
-}
+  }
 
   const handleFilterGenres = (p) => {
     dispatch(filterByGenres(p.target.value))
@@ -77,7 +81,7 @@ if (currentPage && loader) {
     <>
       <div >
         <div >
-          
+
           <NavBar
             handleClick={handleClick}
             orderByName={orderByName}
@@ -99,7 +103,7 @@ if (currentPage && loader) {
                   {currentGames?.map((p) => {
                     return (
                       <Fragment key={p.id}>
-                        {p.error ? <div className={estilos.error}><Error /></div> :
+                        {p.error ? <div key={p.id}> <Error /> </div> :
                           <Link key={p.id} to={`/videogames/${p.id}`}>
                             <Card
                               name={p.name}

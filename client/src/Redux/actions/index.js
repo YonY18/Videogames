@@ -125,3 +125,10 @@ export const deleteVideogame = (id) => {
         }
     }
 }
+export function cleanFilters(){
+    return{
+        type:"CLEAN_FILTERS",
+        payload:[]
+    }
+
+}
