@@ -32,4 +32,10 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 
 #### ScreenShots:
 
+![Captura de pantalla (18)](https://user-images.githubusercontent.com/85300818/177042982-a1ac4bde-5109-4bab-be65-97ab9a6865bb.png)
+![Captura de pantalla (20)](https://user-images.githubusercontent.com/85300818/177042985-59ed471a-fd21-4b48-b955-ff152532b67e.png)
+![Captura de pantalla (21)](https://user-images.githubusercontent.com/85300818/177042986-7ba9cace-70a4-44e3-8e17-a25cd752ea74.png)
+![Captura de pantalla (22)](https://user-images.githubusercontent.com/85300818/177042989-3b08520a-8a57-4fb7-8c82-8cd4a0d11008.png)
+![Captura de pantalla (23)](https://user-images.githubusercontent.com/85300818/177042987-75a6372f-9aad-4483-8c45-7a869b31a692.png)
+
 
